@@ -19,7 +19,10 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "jpeg-js": "0.4.0"
+    "jpeg-js": "0.4.0",
+    "bl": "^4.0.3",
+    "serialize-javascript": "^3.1.0",
+    "jpeg-js": "^0.4.0"
   },
   "keywords": [
     "gatsby"
