@@ -22,7 +22,8 @@
     "jpeg-js": "0.4.0",
     "bl": "^4.0.3",
     "serialize-javascript": "^3.1.0",
-    "jpeg-js": "^0.4.0"
+    "jpeg-js": "^0.4.0",
+    "node-fetch": "^2.6.1"
   },
   "keywords": [
     "gatsby"
