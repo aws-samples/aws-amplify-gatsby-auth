@@ -10,7 +10,7 @@ Amplify.configure(config)
 const IndexPage = () => (
   <Layout>
     <h1>Hi people</h1>
-    <p>Welcome to Infodaddy with multi-user authentication powered by <a href="https://amplify.aws">AWS Amplify</a></p>
+    <p>Welcome to Infodaddy Extra Large with multi-user authentication powered by <a href="https://amplify.aws">AWS Amplify</a></p>
     <p>Create a new account: <Link to="/app/signup">Sign Up</Link></p>
     <Link to="/app/login">Sign In</Link><br />
     <Link to="/app/home">Home</Link><br />
