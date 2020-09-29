@@ -75,7 +75,7 @@ const styles = {
     display: 'flex', flexDirection: 'column'
   },
   button: {
-    backgroundColor: 'rebeccapurple', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
+    backgroundColor: '#3b5998', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
   },
   buttonText: {
     color: 'white'
