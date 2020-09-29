@@ -17,10 +17,10 @@ const App = () => (
       <SignUp path="/app/signup" />
     </Router>
   </Layout>
-  <div>
-  <AmplifySignOut />
-  My App
-</div>
+//  <div>
+//  <AmplifySignOut />
+//  My App
+//</div>
 )
 
 export default withAuthenticator(App);
