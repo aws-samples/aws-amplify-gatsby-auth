@@ -1,0 +1,20 @@
+{
+  "bethanne": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-my-aws-project-bethanne-214422-authRole",
+      "UnauthRoleArn": "arn:aws:iam::933280331151:role/amplify-my-aws-project-bethanne-214422-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::933280331151:role/amplify-my-aws-project-bethanne-214422-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-my-aws-project-bethanne-214422-deployment",
+      "UnauthRoleName": "amplify-my-aws-project-bethanne-214422-unauthRole",
+      "StackName": "amplify-my-aws-project-bethanne-214422",
+      "StackId": "arn:aws:cloudformation:us-west-2:933280331151:stack/amplify-my-aws-project-bethanne-214422/c5f69190-01d3-11eb-97c7-0a5b278ce82f",
+      "AmplifyAppId": "d10j924bzud8sq"
+    },
+    "categories": {
+      "auth": {
+        "cognito704b3e59": {}
+      }
+    }
+  }
+}
