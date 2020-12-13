@@ -17,16 +17,13 @@ const SignUp = () => {
   });
 
   const handleUpdate = (e) => {
-    if(e.target.name === 'phone_number'){
-      let val = '+1'+e.target.value;
-      setSignupInfo({...signupInfo,[e.target.name]: val});
-      return;
-    }
     setSignupInfo({...signupInfo,[e.target.name]:e.target.value});
+    return;
   }
 
   const signUp = async () => {
     const { username, password, email, phone_number } = signupInfo;
+    let usPhoneNumber = '+1'+phone_number;
     try {
       await Auth.signUp({ username, password, attributes: { email, phone_number }});
       setSignupInfo({...signupInfo,state: 1});
