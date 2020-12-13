@@ -4,7 +4,8 @@ import { navigate } from '@reach/router'
 import { setUser, isLoggedIn } from '../utils/auth'
 import Error from './Error'
 import { Auth } from 'aws-amplify'
-
+import {Form,Input} from './emotion'
+Input
 const Login = () => {
   const [form, setForm] = useState({
     username: '',
@@ -38,38 +39,30 @@ const Login = () => {
     <div>
       <h1>Sign In</h1>
       {form.error && <Error errorMessage={form.textAlignerror}/>}
-      <div style={styles.formContainer}>
-        <input
+      <Form>
+        <Input
           onChange={handleUpdate}
           placeholder='Username'
           name='username'
           value={form.username}
-          style={styles.input}
         />
-        <input
+        <Input
           onChange={handleUpdate}
           placeholder='Password'
           name='password'
           value={form.password}
           type='password'
-          style={styles.input}
         />
         <div style={styles.button} onClick={login}>
           <span style={styles.buttonText}>Sign In</span>
         </div>
-      </div>
+      </Form>
       <Link to="/app/signup">Sign Up</Link><br />
     </div>
   )
 }
 
 const styles = {
-  input: {
-    height: 40, margin: '10px 0px', padding: 7
-  },
-  formContainer: {
-    display: 'flex', flexDirection: 'column'
-  },
   button: {
     backgroundColor: 'rebeccapurple', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
   },
