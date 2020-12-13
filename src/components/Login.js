@@ -4,8 +4,8 @@ import { navigate } from '@reach/router'
 import { setUser, isLoggedIn } from '../utils/auth'
 import Error from './Error'
 import { Auth } from 'aws-amplify'
-import {Form,Input} from './emotion'
-Input
+import {Form,Input,HeaderLink,PredictiveButton} from './emotion'
+
 const Login = () => {
   const [form, setForm] = useState({
     username: '',
@@ -53,8 +53,8 @@ const Login = () => {
           value={form.password}
           type='password'
         />
-        <div style={styles.button} onClick={login}>
-          <span style={styles.buttonText}>Sign In</span>
+        <div onClick={login}>
+          <PredictiveButton>Sign In</PredictiveButton>
         </div>
       </Form>
       <Link to="/app/signup">Sign Up</Link><br />
