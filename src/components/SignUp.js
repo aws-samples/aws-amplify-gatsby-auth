@@ -1,131 +1,111 @@
-import React from "react"
+import React,{useState} from "react"
 import { navigate} from "@reach/router"
 import { Link } from 'gatsby'
 import Error from './Error'
 import { Auth } from 'aws-amplify'
+import {Input,Form,PredictiveButton,HeaderLink} from './emotion'
 
-const initialState = {
-  username: ``,
-  password: ``,
-  email: '',
-  phone_number: '',
-  authCode: '',
-  stage: 0,
-  error: ''
-}
+const SignUp = () => {
+  const [signupInfo,setSignupInfo] = useState({
+    username: ``,
+    password: ``,
+    email: '',
+    phone_number: '',
+    authCode: '',
+    stage: 0,
+    error: ''
+  });
 
-
-class SignUp extends React.Component {
-  state = initialState
-
-  handleUpdate = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
+  const handleUpdate = (e) => {
+    if(e.target.name === 'phone_number'){
+      let val = '+1'+e.target.value;
+      setSignupInfo({...signupInfo,[e.target.name]: val});
+      return;
+    }
+    setSignupInfo({...signupInfo,[e.target.name]:e.target.value});
   }
 
-  signUp = async() => {
-    const { username, password, email, phone_number } = this.state
+  const signUp = async () => {
+    const { username, password, email, phone_number } = signupInfo;
     try {
-      await Auth.signUp({ username, password, attributes: { email, phone_number }})
-      this.setState({ stage: 1 })
+      await Auth.signUp({ username, password, attributes: { email, phone_number }});
+      setSignupInfo({...signupInfo,state: 1});
     } catch (err) {
-      this.setState({ error: err })
-      console.log('error signing up...', err)
+      setSignupInfo({...signupInfo,error: err});
+      console.log('error signing up...', err);
     }
   }
 
-  confirmSignUp = async() => {
-    const { username, authCode } = this.state
+  const confirmSignUp = async () => {
+    const { username, authCode } = signupInfo;
     try {
       await Auth.confirmSignUp(username, authCode)
       alert('Successfully signed up!')
       navigate("/app/login")
     } catch (err) {
-      this.setState({ error: err })
+      setSignupInfo({...signupInfo,error: err});
       console.log('error confirming signing up...', err)
     }
   }
-
-  render() {
-    return (
-      <div>
-        <h1>Sign Up</h1>
-        {
-          this.state.stage === 0 && (
-            <div style={styles.formContainer}>
-              {this.state.error && <Error errorMessage={this.state.error}/>}
-              <input
-                onChange={this.handleUpdate}
-                placeholder='Username'
-                name='username'
-                value={this.state.username}
-                style={styles.input}
-              />
-              <input
-                onChange={this.handleUpdate}
-                placeholder='Password'
-                name='password'
-                value={this.state.password}
-                type='password'
-                style={styles.input}
-              />
-              <input
-                onChange={this.handleUpdate}
-                placeholder='Email'
-                name='email'
-                value={this.state.email}
-                style={styles.input}
-              />
-              <input
-                onChange={this.handleUpdate}
-                placeholder='Phone Number'
-                name='phone_number'
-                value={this.state.phone_number}
-                style={styles.input}
-              />
-              <div style={styles.button} onClick={this.signUp}>
-                <span style={styles.buttonText}>Sign Up</span>
-              </div>
+  return (
+    <div>
+      <h1 style={{textAlign:'center'}}>Sign Up</h1>
+      {
+        signupInfo.stage === 0 && (
+          <Form >
+            {signupInfo.error && <Error errorMessage={signupInfo.error}/>}
+            <Input
+              onChange={handleUpdate}
+              placeholder='Username'
+              name='username'
+              value={signupInfo.username}
+            />
+            <Input
+              onChange={handleUpdate}
+              placeholder='Password'
+              name='password'
+              value={signupInfo.password}
+              type='password'
+            />
+            <Input
+              onChange={handleUpdate}
+              placeholder='Email'
+              name='email'
+              value={signupInfo.email}
+            />
+            <Input
+              onChange={handleUpdate}
+              placeholder='Phone Number'
+              name='phone_number'
+              value={signupInfo.phone_number}
+            />
+            <div onClick={signUp}>
+              <PredictiveButton style={{marginTop:'0'}}>Sign Up</PredictiveButton>
             </div>
-          )
-        }
-        {
-          this.state.stage === 1 && (
-            <div style={styles.formContainer}>
-              {this.state.error && <Error errorMessage={this.state.error}/>}
-              <input
-                onChange={this.handleUpdate}
-                placeholder='Authorization Code'
-                name='authCode'
-                value={this.state.authCode}
-                style={styles.input}
-              />
-              <div style={styles.button} onClick={this.confirmSignUp}>
-                <span style={styles.buttonText}>Confirm Sign Up</span>
-              </div>
+          </Form>
+        )
+      }
+      {
+        signupInfo.stage === 1 && (
+          <Form>
+            {signupInfo.error && <Error errorMessage={signupInfo.error}/>}
+            <Input
+              onChange={handleUpdate}
+              placeholder='Authorization Code'
+              name='authCode'
+              value={signupInfo.authCode}
+            />
+            <div onClick={confirmSignUp}>
+              <PredictiveButton>Confirm Sign Up</PredictiveButton>              
             </div>
-          )
-        }
-        <Link to="/app/login">Sign In</Link>
+          </Form>
+        )
+      }
+      <div style={{width: '50%',margin: 'auto'}}>
+        <PredictiveButton style={{width: '25%'}} to="/app/login">Sign In</PredictiveButton>
       </div>
-    )
-  }
-}
-
-const styles = {
-  input: {
-    height: 40, margin: '10px 0px', padding: 7
-  },
-  formContainer: {
-    display: 'flex', flexDirection: 'column'
-  },
-  button: {
-    backgroundColor: 'rebeccapurple', padding: '15px 7px', cursor: 'pointer', textAlign: 'center', marginBottom: 10
-  },
-  buttonText: {
-    color: 'white'
-  }
+    </div>
+  )
 }
 
 export default SignUp

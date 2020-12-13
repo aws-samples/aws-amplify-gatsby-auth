@@ -1,25 +1,23 @@
-import React from "react"
+import React, {useState} from "react"
 import { Link } from 'gatsby'
 import { navigate } from '@reach/router'
 import { setUser, isLoggedIn } from '../utils/auth'
 import Error from './Error'
 import { Auth } from 'aws-amplify'
 
-class Login extends React.Component {
-  state = {
-    username: ``,
-    password: ``,
-    error: ``
+const Login = () => {
+  const [form, setForm] = useState({
+    username: '',
+    password: '',
+    error: false
+  });
+
+  const handleUpdate = (event) => {
+    setForm({...form,[event.target.name]: event.target.value});
   }
 
-  handleUpdate = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
-
-  login = async() => {
-    const { username, password } = this.state
+  const login = async () => {
+    const { username, password } = form;
     try {
       await Auth.signIn(username, password)
       const user = await Auth.currentAuthenticatedUser()
@@ -30,41 +28,39 @@ class Login extends React.Component {
       setUser(userInfo)
       navigate("/app/home")
     } catch (err) {
-      this.setState({ error: err })
+      // this.setState({ error: err })
       console.log('error...: ', err)
     }
   }
 
-  render() {
-    if (isLoggedIn()) navigate('/app/profile')
-    return (
-      <div>
-        <h1>Sign In</h1>
-        {this.state.error && <Error errorMessage={this.state.error}/>}
-        <div style={styles.formContainer}>
-         <input
-            onChange={this.handleUpdate}
-            placeholder='Username'
-            name='username'
-            value={this.state.username}
-            style={styles.input}
-          />
-          <input
-            onChange={this.handleUpdate}
-            placeholder='Password'
-            name='password'
-            value={this.state.password}
-            type='password'
-            style={styles.input}
-          />
-          <div style={styles.button} onClick={this.login}>
-            <span style={styles.buttonText}>Sign In</span>
-          </div>
+  if (isLoggedIn()) navigate('/app/profile')
+  return (
+    <div>
+      <h1>Sign In</h1>
+      {form.error && <Error errorMessage={form.textAlignerror}/>}
+      <div style={styles.formContainer}>
+        <input
+          onChange={handleUpdate}
+          placeholder='Username'
+          name='username'
+          value={form.username}
+          style={styles.input}
+        />
+        <input
+          onChange={handleUpdate}
+          placeholder='Password'
+          name='password'
+          value={form.password}
+          type='password'
+          style={styles.input}
+        />
+        <div style={styles.button} onClick={login}>
+          <span style={styles.buttonText}>Sign In</span>
         </div>
-        <Link to="/app/signup">Sign Up</Link><br />
       </div>
-    )
-  }
+      <Link to="/app/signup">Sign Up</Link><br />
+    </div>
+  )
 }
 
 const styles = {
