@@ -21,11 +21,12 @@ const SignUp = () => {
     return;
   }
 
-  const signUp = async () => {
+  const signUp = async (e) => {
+    e.preventDefault();
     const { username, password, email, phone_number } = signupInfo;
     let usPhoneNumber = '+1'+phone_number;
     try {
-      await Auth.signUp({ username, password, attributes: { email, phone_number }});
+      await Auth.signUp({ username, password, attributes: { email, usPhoneNumber }});
       setSignupInfo({...signupInfo,state: 1});
     } catch (err) {
       setSignupInfo({...signupInfo,error: err});
