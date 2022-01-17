@@ -11,7 +11,8 @@
     "start": "gatsby develop --port 8888",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "deploy-master": "curl -X POST -d {} 'https://webhooks.amplify.eu-west-1.amazonaws.com/prod/webhooks?id=c6a65845-603c-4f14-8cbf-3e1b1ea172a7&token=mZVeS4wSgYAJjQk4gZUM7r1vENUzaIMLjHH2UACQ&operation=startbuild' -H 'Content-Type:application/json'"
   },
   "dependencies": {
     "@svgr/webpack": "^6.2.0",
