@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Averta';
+  src: url('./fonts/averta-regular.woff2') format('woff2');
+  src: url('./fonts/averta-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Averta';
+  src: url('./fonts/averta-regular-italic.woff2') format('woff2');
+  src: url('./fonts/averta-regular-italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Averta';
+  src: url('./fonts/averta-bold.woff2') format('woff2');
+  src: url('./fonts/averta-bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Averta';
+  src: url('./fonts/averta-bold-italic.woff2') format('woff2');
+  src: url('./fonts/averta-bold-italic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+html {
+  font-family: 'Averta', sans-serif;
+  scroll-behavior: smooth;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  line-height: calc(1em + 8px);
+}
+
+h1 { font-size: 32px; margin-bottom: 24px; }
+h2 { font-size: 32px; margin-bottom: 24px;}
+h3 { font-size: 24px; margin-bottom: 24px; font-weight: 400;}
+p, a { font-size: 16px; line-height: calc(1em + 8px); }
+
+h1 b, h2 b, h3 b { 
+  color: var(--hsl-primary);
+  font-style: italic;
+}
+
+p b {
+  font-style: bold;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-branding-link, --hsl-primary);
+}
+
+button {
+  font: inherit;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+input {
+  font: inherit;
+  border: none;
+  text-decoration: none;
+  outline: none;
+}
+
+@media(min-width: 580px) {
+  h1 { font-size: 64px; margin-bottom: 24px; white-space: pre-wrap; }
+  h2 { font-size: 48px; margin-bottom: 24px; white-space: pre-wrap; }
+  h3 { font-size: 24px; margin-bottom: 24px; white-space: pre-wrap; }
+  p, a { font-size: 18px; }
+
+  .noMarginBottom {
+    margin-bottom: 0;
+  }
+}
+

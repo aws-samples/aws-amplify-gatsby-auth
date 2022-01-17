@@ -1,0 +1,42 @@
+.wrapper {
+  max-width: var(--responsive-width-content);
+  padding: 0 16px;
+}
+
+.title {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.memberList {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 40px;
+}
+
+.name, .role {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.name {
+  margin-top: 8px;
+}
+
+.role {
+  color: rgba(0,0,0,0.6);
+}
+
+@media (min-width: 960px) {
+  .title {
+    margin-top: 96px;
+    text-align: left;
+  }
+  .memberList {
+    margin-top: 0;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

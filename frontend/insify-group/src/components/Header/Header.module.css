@@ -1,0 +1,155 @@
+.backdrop {
+  background: linear-gradient(180deg, #FFFFFF 5.01%, #F8F5FE 23.33%);
+  padding-bottom: 80px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  width: 100%;
+  padding: 0 16px;
+  max-width: var(--responsive-width-content);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-top: 8px;
+}
+
+.content p, .content .title {
+  text-align: center;
+}
+
+.mission {
+  letter-spacing: .05em;
+  font-size: 14px;
+  margin-top: 80px;
+  text-transform: uppercase;
+}
+
+.usps {
+  display: flex;
+  flex-direction: column;
+  margin-top: 32px;
+  max-width: 480px;
+}
+
+.usps svg {
+  flex-shrink: 0;
+}
+
+.usp {
+  display: flex;
+  margin-top: 24px;
+}
+
+.usp p {
+  text-align: left;
+}
+
+.usp:first-child {
+  margin-top: 0;
+}
+
+.usp svg {
+  margin-top: 2px;
+  margin-right: 16px;
+}
+
+.imageMobile, .imageDesktop {
+  margin-top: 80px;
+  margin-bottom: -64px;
+}
+.backdrop .imageMobile {
+  width: 720px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.backdrop .imageDesktop {
+  display: none;
+}
+
+.statsIntro {
+  font-size: 24px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistic {
+  margin-top: 32px;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistic h2 {
+  margin-bottom: 0;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+@media (min-width: 960px) {
+  .title {
+    max-width: 800px;
+  }
+  
+  .backdrop {
+    padding-bottom: 128px;
+  }
+  
+  .usps {
+    margin-top: 64px;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: none;
+    width: 100%;
+  }
+
+  .usp {
+    margin-top: 0;
+    margin-left: 24px;
+    flex-basis: 100%;
+  }
+  .usp:first-of-type {
+    margin-left: 0;
+  }
+  
+  .backdrop .imageDesktop {
+    margin-top: 128px;
+    width: 1520px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+  }
+  .backdrop .imageMobile {
+    display: none;
+  }
+
+  .statsIntro {
+    font-size: 40px;
+  }
+
+  .stats {
+    margin-top: 32px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .statistic {
+    padding: 0 64px;
+  }
+}

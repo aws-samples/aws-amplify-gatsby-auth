@@ -1,0 +1,32 @@
+:root {
+  /* Colors */
+  --hsl-primary: hsl(223, 100%, 45%);
+  --hs-primary: 223, 100%;
+  --hsl-primary-dark: hsl(235, 56%, 32%);
+  --hs-primary-dark: 235, 56%;
+  --hsl-danger: #f3073d;
+  --hsl-success: #04c982;
+  --hsl-aov: hsl(350, 100%, 85%);
+  --hs-aov: 350, 100%;
+  --hsl-background-grey: hsl(262.5, 44.4%, 96.5%);
+
+  /* Sizing and margin */
+  --padding-content: 16px;
+  --width-max-content: 1328px;
+  --visible-only-mobile: flex;
+
+  /* Shadows */
+  --shadow-hard: 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-soft: 0px 18px 36px rgb(0 0 0 / 7%), 0px 7.51997px 15.0399px rgb(0 0 0 / 5%),
+    0px 4.02054px 8.04107px rgb(0 0 0 / 4%), 0px 2.25388px 4.50776px rgb(0 0 0 / 4%),
+    0px 1.19702px 2.39404px rgb(0 0 0 / 3%), 0px 0.498106px 0.996212px rgb(0 0 0 / 2%);
+  --view-height: 100vh;
+  --responsive-width-content: 640px;
+}
+
+@media (min-width: 960px) {
+  :root {
+    --visible-only-mobile: none;
+    --responsive-width-content: 1200px;
+  }
+}

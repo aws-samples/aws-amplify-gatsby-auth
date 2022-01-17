@@ -1,0 +1,77 @@
+.backdrop {
+  margin-top: 88px;
+  background-color: #030623;
+  width: 100%;
+}
+
+.content {
+  width: 100%;
+  max-width: var(--responsive-width-content);
+  color: #ffffff;
+  padding: 0 16px 128px;
+  margin: 0 auto;
+}
+
+.content a {
+  color: #FC597E;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .homeLink {
+  font-size: 15px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 6px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.homeLink svg {
+  margin-right: 16px;
+}
+
+.contact {
+  margin-top: 64px;
+  text-align: center;
+}
+
+.mail {
+  font-size: 32px;
+}
+
+.socials {
+  margin-top: 16px;
+}
+
+.socials a {
+  margin-left: 16px;
+}
+.socials a:first-of-type {
+  margin-left: 0;
+}
+
+.companyDetails {
+  text-align: center;
+  line-height: 23px;
+  margin-top: 64px;
+  font-size: 13px;
+  width: 100%;
+}
+
+.companyDetails a {
+  font-size: 13px;
+}
+
+@media (min-width: 960px) {
+  .backdrop {
+    margin-top: 128px;
+  }
+}

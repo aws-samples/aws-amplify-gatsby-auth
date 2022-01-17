@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding: 0 16px;
+  max-width: var(--responsive-width-content);
+  justify-content: space-between; 
+}
+
+.careers {
+  color: var(--hsl-primary);
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
