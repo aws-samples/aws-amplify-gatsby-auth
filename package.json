@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Nader Dabit <dabit3.@gmail.com>",
   "dependencies": {
-    "aws-amplify": "^4.2.4",
+    "aws-amplify": "^4.3.14",
     "gatsby": "^2.32.13",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-offline": "^2.2.10",
