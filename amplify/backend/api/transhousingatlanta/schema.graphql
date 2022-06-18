@@ -1,0 +1,26 @@
+type Request @model @auth(rules: [{allow: public}]) @key(name: "byClient", fields: ["clientID"]) {
+  id: ID!
+  client: String
+  Client: Client @connection
+  clientID: ID!
+  details: String
+  Volunteer: Volunteer @connection
+  status: String
+}
+
+type Client @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  pronouns: String
+  needs: String
+  Requests: [Request] @connection(keyName: "byClient", fields: ["id"])
+}
+
+type Volunteer @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  email: String
+  phone: String
+  contactMethods: String
+  provisions: String
+} 

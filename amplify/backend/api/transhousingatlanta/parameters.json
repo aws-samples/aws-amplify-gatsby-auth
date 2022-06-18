@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "transhousingatlanta",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}
